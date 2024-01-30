@@ -129,7 +129,7 @@ body {
 }
 
 .progress-value {
-  animation: load 3s normal forwards;
+  /* animation: load 3s normal forwards; */
   box-shadow: 0 10px 40px -10px #fff;
   border-radius: 100px;
   background: #fff;
@@ -140,4 +140,85 @@ body {
 @keyframes  load{
   0% { width: 0; }
   100% { width: 68%; }
+}
+
+.progress-html{
+  animation: html 3s normal forwards;
+}
+
+.progress-css{
+  animation: css 3s normal forwards;
+}
+
+.progress-javascript{
+  animation: javascript 3s normal forwards;
+}
+
+.progress-nextjs{
+  animation: nextjs 3s normal forwards;
+}
+
+.progress-reactjs{
+  animation: reactjs 3s normal forwards;
+}
+
+.progress-java{
+  animation: java 3s normal forwards;
+}
+
+.progress-cpp{
+  animation: cpp 3s normal forwards;
+}
+
+.progress-figma{
+  animation: figma 3s normal forwards;
+}
+
+.progress-fresco{
+  animation: fresco 3s normal forwards;
+}
+
+@keyframes  html{
+  0% { width: 0; }
+  100% { width: 89%; }
+}
+
+@keyframes  css{
+  0% { width: 0; }
+  100% { width: 90%; }
+}
+
+@keyframes  javascript{
+  0% { width: 0; }
+  100% { width: 65%; }
+}
+
+@keyframes  reactjs{
+  0% { width: 0; }
+  100% { width: 45%; }
+}
+
+@keyframes  nextjs{
+  0% { width: 0; }
+  100% { width: 55%; }
+}
+
+@keyframes  java{
+  0% { width: 0; }
+  100% { width: 50%; }
+}
+
+@keyframes  cpp{
+  0% { width: 0; }
+  100% { width: 75%; }
+}
+
+@keyframes  figma{
+  0% { width: 0; }
+  100% { width: 80%; }
+}
+
+@keyframes  fresco{
+  0% { width: 0; }
+  100% { width: 95%; }
 }
