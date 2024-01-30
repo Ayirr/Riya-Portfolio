@@ -31,16 +31,16 @@ export default function Contact(){
     // }
 
     return(
-        <div className="my-12 z-10 relative text-center " id="contact">
+        <div className="my-12 z-10 relative text-center" id="contact">
             <div className="text-4xl my-12 text-center">Contact</div>
             <div  className=" flex  flex-col justify-center flex-wrap items-center">
-                <form  className="flex flex-col gap-8 items-center h-screen">
+                <form  className="flex flex-col gap-8 items-center">
                     <input value={name} onChange={(e)=> setName(e.target.value)} type="text" placeholder="Name" className="bg-transparent border-2"></input>
                     <input value={email} onChange={(e)=> setEmail(e.target.value)} type="email" placeholder="email" className="bg-transparent border-2"></input>
                     <textarea value={message}  onChange={(e)=> setMessage(e.target.value)} placeholder="message" className="bg-transparent border-2 content-start"></textarea>
                     <button type="submit" className="border-2 px-4 py-2 rounded border-white" >Submit</button>
                 </form>
-                <div className="m-16 h-screen">
+                <div className="m-16">
                     Or you can connect with me on:
                     <div className="flex gap-8 my-4 justify-center">
                         <Link href="https://github.com/Ayirr" target="_blank"><img src="git.png" className="w-8 invert"/></Link>

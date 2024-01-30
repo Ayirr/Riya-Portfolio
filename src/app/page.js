@@ -13,6 +13,7 @@ export default function Home() {
   const scaleX = useSpring(scrollYProgress)
   return (
     <main className='w-screen'>
+      <html>
       <div className="fixed  z-0 top-0 object-fill overflow-hidden ">
         <video autoPlay muted loop id="bg-vid" >
           <source src="bbg.mp4" type="video/mp4"/>
@@ -35,6 +36,7 @@ export default function Home() {
     <About/>
     <Skills/>
     <Contact/>
+    </html>
     </main>
   )
 }

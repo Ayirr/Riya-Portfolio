@@ -36,6 +36,16 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+html {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
 @font-face {
   font-family: neon-text;
   src: url('/neons/Neons_demo.otf');
