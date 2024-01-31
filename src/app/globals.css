@@ -28,6 +28,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
+  font-family: cursive;
   background: linear-gradient(
       to bottom,
       transparent,
@@ -38,6 +39,7 @@ body {
 
 html {
   color: rgb(var(--foreground-rgb));
+  font-family: cursive;
   background: linear-gradient(
       to bottom,
       transparent,
@@ -54,7 +56,7 @@ html {
 *{
   font-size: 16px;
   text-align: center;
-  font-family: 'Bodoni';
+  font-family:  monospace;
 }
 
 
@@ -254,4 +256,19 @@ html {
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
+}
+
+.instagram:hover{
+  border-bottom-color: #43d572;
+  opacity: 1;
+}
+
+.discord:hover{
+  border-bottom-color: #8d7625;
+  opacity: 1;
+}
+
+.linkedin:hover{
+  border-bottom-color: #ff884a;
+  opacity: 1;
 }

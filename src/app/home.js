@@ -27,6 +27,12 @@ export default function HomeContent(){
                     <motion.div whileHover={{ scale: 1.2}} onHoverStart={e => {}} onHoverEnd={e => {}}>
                         <button className="border-2 border-white p-2 neon neon-border"><Link href="https://drive.google.com/file/d/1rwXAIZVoOlaSemxVNC4Zlgu-dJRtx_Ns/view?usp=sharing" target='_blank'>Portfolio</Link></button>
                     </motion.div>
+
+                    <div className='absolute flex bottom-0 right-0 mx-4'>
+                        <Link href="https://www.instagram.com/reahhh.h/" className='border opacity-60 border-4 border-white p-1 bottom-0 text-white invert bg-white mx-0.5 instagram' target='_blank'><img src="insta.png"className='h-8'/></Link>
+                        <Link href="https://www.discordapp.com/users/907639882837557359" className='border opacity-60 border-4 border-white p-1 bottom-0 text-white invert bg-white mx-0.5 discord' target='_blank'><img src="discord.png"className='h-8'/></Link>
+                        <Link href="https://www.linkedin.com/in/riya-bora-343117256/" className='border opacity-60 border-4 border-white p-1 bottom-0 text-white invert bg-white mx-0.5 linkedin' target='_blank'><img src="linkedin.jpg"className='h-8'/></Link>
+                    </div>
             </div>
     )
 }
