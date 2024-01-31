@@ -4,16 +4,34 @@ import Header from './header'
 import About from './about'
 import Skills from './skills'
 import Contact from './contact'
+import Preloader from './framer/preloader'
 import HomeContent from './home'
 import { CircleIndicator } from './framer/progress'
 import { motion, useScroll, useSpring } from "framer-motion"
+import { useState } from 'react'
+import { useEffect } from 'react'
 
 export default function Home() {
   const { scrollYProgress } = useScroll()
   const scaleX = useSpring(scrollYProgress)
+  const [isLoading, setIsLoading]=useState(true);
+  
+  useEffect(() => {
+    window.addEventListener("load", () => {
+      setIsLoading(false);
+    });
+    const timeout = setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
+
   return (
     <main className='w-screen'>
       <html>
+    {isLoading ? <Preloader /> : ""}
       <div className="fixed  z-0 top-0 object-fill overflow-hidden ">
         <video autoPlay muted loop id="bg-vid" >
           <source src="bbg.mp4" type="video/mp4"/>

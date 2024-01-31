@@ -232,3 +232,26 @@ html {
   0% { width: 0; }
   100% { width: 95%; }
 }
+
+.preloader{
+  height: 100vh;
+  width: 100%;
+  background: #000;
+  color: #FFF;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.gif{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
