@@ -26,7 +26,7 @@ export default function MySlider ()  {
                     <img src="img.jpg" className="h-80 "></img>
                 </div>
                 <div className="w-96">
-                "Currently pursuing engineering at The LNM Institute of Information Technology. I find joy in exploring the intersections of Frontend Development and bringing creative ideas to life. As I navigate through my studies, I'm on the lookout for exciting opportunities to apply my knowledge in real-world scenarios. I'm enthusiastic about connecting with fellow students and professionals who share similar interests and aspirations. Besides that I am also a digital illustrator actively seeking opportunities bridge the gap between academia and artistic exploration."
+                Currently pursuing engineering at The LNM Institute of Information Technology. I find joy in exploring the intersections of Frontend Development and bringing creative ideas to life. As I navigate through my studies, I'm on the lookout for exciting opportunities to apply my knowledge in real-world scenarios. I'm enthusiastic about connecting with fellow students and professionals who share similar interests and aspirations. Besides that I am also a digital illustrator actively seeking opportunities bridge the gap between academia and artistic exploration.
                 </div>
             </div>
           </div>
