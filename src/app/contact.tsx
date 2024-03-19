@@ -31,8 +31,9 @@ export default function Contact(){
     // }
 
     return(
-        <div className="my-12 z-10 relative text-center" id="contact">
-            <div className="text-4xl my-12 text-center">Contact</div>
+        <div className="my-12 z-10 relative text-center" id="contact"><h1 className="text-8xl p-8 neon heading h-screen flex justify-center items-center" >
+        Contact
+    </h1>
             <div  className=" flex  flex-col justify-center flex-wrap items-center">
                 <form  className="flex flex-col gap-8 items-center">
                     <input value={name} onChange={(e)=> setName(e.target.value)} type="text" placeholder="Name" className="bg-transparent border-2"></input>

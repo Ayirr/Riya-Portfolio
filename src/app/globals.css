@@ -90,6 +90,25 @@ html {
   0 0 150px #0ff;
 }
 
+.neon-border2{
+  border-width: 2px;
+  color: white;
+
+  text-shadow: 0 0 .2rem #fff,
+              0 0 .2rem #fff,
+              0 0 2rem #0ff,
+              0 0 0.8rem #0ff,
+              0 0 2.8rem #0ff,
+              inset 0 0 1.3rem #0ff;
+  
+  box-shadow: 0 0 .2rem #fff,
+              0 0 .2rem #fff,
+              0 0 2rem #0ff,
+              0 0 0.8rem #0ff,
+              0 0 2.8rem #0ff,
+              inset 0 0 1.3rem #0ff;
+}
+
 .neon1:hover{
   text-shadow:
     0 0 5px #fff,
@@ -271,4 +290,89 @@ html {
 .linkedin:hover{
   border-bottom-color: #ff884a;
   opacity: 1;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="number-slide"],
+[class*=" number-slide"] {
+  font-size: 50px;
+  color: #fff;
+  font-weight: 500;
+  max-height: 100vh;
+}
+
+.bg-school{
+  background-image: url('/public/bps2.png');
+}
+
+.number-slide1 {
+ 
+}
+
+.number-slide2 {
+  
+}
+
+.number-slide3 {
+  
+}
+
+
+.navigation-wrapper {
+  position: relative;
+}
+
+.dots {
+  display: flex;
+  padding: 10px 0;
+  justify-content: center;
+}
+
+.dot {
+  border: none;
+  width: 10px;
+  height: 10px;
+  background: #c5c5c5;
+  border-radius: 50%;
+  margin: 0 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.dot:focus {
+  outline: none;
+}
+
+.dot.active {
+  background: #000;
+}
+
+.arrow {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  fill: #fff;
+  cursor: pointer;
+}
+
+.arrow--left {
+  left: 5px;
+}
+
+.arrow--right {
+  left: auto;
+  right: 5px;
+}
+
+.arrow--disabled {
+  fill: rgba(255, 255, 255, 0.5);
 }

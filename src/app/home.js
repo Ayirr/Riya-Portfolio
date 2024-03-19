@@ -8,7 +8,7 @@ export default function HomeContent(){
     const text = "navigating the world of UI/UX design".split(" ")
     const text2 = "Check out my ongoing journey in my".split(" ")
     return(
-        <div className="flex flex-col justify-center flex-wrap items-center gap-12 relative h-screen" id="home">
+        <div className="flex flex-col justify-center flex-wrap items-center gap-8 relative h-screen" id="home">
                 <p>
                     <motion.div whileHover={{ scale: 1.2 }} onHoverStart={e => {}} onHoverEnd={e => {}} initial={{opacity: 0}}whileInView={{opacity: 1,x: 0,transition: {duration: 1 }}}viewport={{ once: false }}>
                         <spam className="text-7xl font neon py-12" id="name">Riya Bora</spam><br></br>

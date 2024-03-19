@@ -5,7 +5,10 @@ export default function Skills(){
     return(
         <div className="z-10 relative " id="skills">
             <motion.div initial={{opacity: 0}}whileInView={{opacity: 1,x: 0,transition: {duration: 2 }}}viewport={{ once: false }}>
-                <center className="h-screen flex flex-col gap-10 items-center justify-center">
+            <       h1 className="text-8xl p-8 neon heading h-screen flex justify-center items-center" >
+                        Skills
+                    </h1>
+                    <center className="h-screen flex flex-col gap-10 items-center justify-center">
                     <img src="html.png" className="invert w-24 "/>
                     HTML
                     <div className="progress" >
