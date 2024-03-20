@@ -35,13 +35,23 @@ export default function Contact(){
         Contact
     </h1>
             <div  className=" flex  flex-col justify-center flex-wrap items-center">
-                <form  className="flex flex-col gap-8 items-center">
-                    <input value={name} onChange={(e)=> setName(e.target.value)} type="text" placeholder="Name" className="bg-transparent border-2"></input>
-                    <input value={email} onChange={(e)=> setEmail(e.target.value)} type="email" placeholder="email" className="bg-transparent border-2"></input>
-                    <textarea value={message}  onChange={(e)=> setMessage(e.target.value)} placeholder="message" className="bg-transparent border-2 content-start"></textarea>
-                    <button type="submit" className="border-2 px-4 py-2 rounded border-white" >Submit</button>
+                <form  className="flex flex-col gap-8 items-center neon-border2 py-10 px-48 rounded-xl">
+                    <div className="flex gap-4">
+                        <div>Name:</div>
+                    </div>
+                    <input type="text" className="bg-transparent border-b-2"></input>
+
+                    <div className="flex gap-4">
+                        <div>Email:</div>
+                    <input type="email"  className="bg-transparent border-b-2"></input>
+                    </div>
+                    <div className="flex gap-4">
+                        <div>Message:</div>
+                    <textarea  className="bg-transparent border-b-2 content-start"></textarea>
+                    </div>
+                    <button type="submit" className="neon2 border-2 px-4 py-2 rounded border-white" >Submit</button>
                 </form>
-                <div className="m-16">
+                <div className="m-16 bg-black px-80 rounded-xl py-8 border-2">
                     Or you can connect with me on:
                     <div className="flex gap-8 my-4 justify-center">
                         <Link href="https://github.com/Ayirr" target="_blank"><img src="git.png" className="w-8 invert"/></Link>

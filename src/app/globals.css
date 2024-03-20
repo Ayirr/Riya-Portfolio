@@ -134,6 +134,7 @@ html {
 }
 
 
+
 .image-container {
   position: relative;
   overflow: hidden;
@@ -165,7 +166,7 @@ html {
   border-radius: 100px;
   background: #fff;
   height: 30px;
-  width: 0;
+  width: 100%;
 }
 
 @keyframes  load{
@@ -311,17 +312,6 @@ body {
   background-image: url('/public/bps2.png');
 }
 
-.number-slide1 {
- 
-}
-
-.number-slide2 {
-  
-}
-
-.number-slide3 {
-  
-}
 
 
 .navigation-wrapper {
