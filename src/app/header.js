@@ -59,8 +59,8 @@ export default function Navbar() {
             </button>
             <button onClick={()=>{toggleMenu();closeMenu();}}>
               <motion.div whileHover={{ scale: 1.2 }} onHoverStart={e => {}} onHoverEnd={e => {}}>
-                <Link href="https://drive.google.com/file/d/1rwXAIZVoOlaSemxVNC4Zlgu-dJRtx_Ns/view?usp=sharing" target="_blank"className="neon1 border-2 border-white p-2 neon2">
-                  Portfolio
+                <Link href="https://drive.google.com/file/d/1tqGYpr_pIwTHP7G9Ro_PL51DWeLG_2qX/view?usp=sharing" target='_blank' className="neon1 border-2 border-white p-2 neon2">
+                  Resume
                 </Link>
               </motion.div>
             </button>
