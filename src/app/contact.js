@@ -11,7 +11,17 @@ import {
     useToast,
   } from "@chakra-ui/react";
   import { useState } from "react";
-  import {sendContactForm} from "./framer/api"
+  import { motion } from "framer-motion";
+
+const sendContactForm = async (data) =>
+  fetch("/api/contact", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
+  }).then((res) => {
+    if (!res.ok) throw new Error("Failed to send message");
+    return res.json();
+  });
   
 const initValues = { name: "", email: "", subject: "", message: "" };
 
@@ -61,86 +71,108 @@ export default function Home() {
   };
 
   return (
-    <Container maxW="450px" mt={12} class="absolute" id='contact'>
-      <Heading>Contact</Heading>
+    <div className="z-10 relative min-h-screen flex flex-col items-center justify-center p-4" id='contact'>
+      <motion.div 
+        initial={{opacity: 0}}
+        whileInView={{opacity: 1, transition: {duration: 2}}}
+        viewport={{ once: false }}
+        className="w-full max-w-md"
+      >
+        <h1 className="text-8xl p-8 neon heading text-center mb-8">Contact</h1>
+        
+        <div className="neon-border2 p-8 rounded-xl bg-black/50 backdrop-blur-sm">
       {error && (
-        <Text color="red.300" my={4} fontSize="xl">
+        <div className="text-red-400 mb-4 text-center">
           {error}
-        </Text>
+        </div>
       )}
 
-      <FormControl isRequired isInvalid={touched.name && !values.name} mb={5}>
-        <FormLabel>Name</FormLabel>
-        <Input
+      <div className="mb-5">
+        <label className="block text-white mb-2">Name *</label>
+        <input
           type="text"
           name="name"
-          errorBorderColor="red.300"
+          className={`w-full p-3 bg-transparent border-2 rounded text-white ${
+            touched.name && !values.name ? 'border-red-400' : 'border-cyan-400'
+          }`}
           value={values.name}
           onChange={handleChange}
           onBlur={onBlur}
         />
-        <FormErrorMessage>Required</FormErrorMessage>
-      </FormControl>
+        {touched.name && !values.name && (
+          <div className="text-red-400 text-sm mt-1">Required</div>
+        )}
+      </div>
 
-      <FormControl isRequired isInvalid={touched.email && !values.email} mb={5}>
-        <FormLabel>Email</FormLabel>
-        <Input
+      <div className="mb-5">
+        <label className="block text-white mb-2">Email *</label>
+        <input
           type="email"
           name="email"
-          errorBorderColor="red.300"
+          className={`w-full p-3 bg-transparent border-2 rounded text-white ${
+            touched.email && !values.email ? 'border-red-400' : 'border-cyan-400'
+          }`}
           value={values.email}
           onChange={handleChange}
           onBlur={onBlur}
         />
-        <FormErrorMessage>Required</FormErrorMessage>
-      </FormControl>
+        {touched.email && !values.email && (
+          <div className="text-red-400 text-sm mt-1">Required</div>
+        )}
+      </div>
 
-      <FormControl
-        mb={5}
-        isRequired
-        isInvalid={touched.subject && !values.subject}
-      >
-        <FormLabel>Subject</FormLabel>
-        <Input
+      <div className="mb-5">
+        <label className="block text-white mb-2">Subject *</label>
+        <input
           type="text"
           name="subject"
-          errorBorderColor="red.300"
+          className={`w-full p-3 bg-transparent border-2 rounded text-white ${
+            touched.subject && !values.subject ? 'border-red-400' : 'border-cyan-400'
+          }`}
           value={values.subject}
           onChange={handleChange}
           onBlur={onBlur}
         />
-        <FormErrorMessage>Required</FormErrorMessage>
-      </FormControl>
+        {touched.subject && !values.subject && (
+          <div className="text-red-400 text-sm mt-1">Required</div>
+        )}
+      </div>
 
-      <FormControl
-        isRequired
-        isInvalid={touched.message && !values.message}
-        mb={5}
-      >
-        <FormLabel>Message</FormLabel>
-        <Textarea
+      <div className="mb-5">
+        <label className="block text-white mb-2">Message *</label>
+        <textarea
           type="text"
           name="message"
           rows={4}
-          errorBorderColor="red.300"
+          className={`w-full p-3 bg-transparent border-2 rounded text-white resize-none ${
+            touched.message && !values.message ? 'border-red-400' : 'border-cyan-400'
+          }`}
           value={values.message}
           onChange={handleChange}
           onBlur={onBlur}
         />
-        <FormErrorMessage>Required</FormErrorMessage>
-      </FormControl>
+        {touched.message && !values.message && (
+          <div className="text-red-400 text-sm mt-1">Required</div>
+        )}
+      </div>
 
-      <Button
-        variant="outline"
-        colorScheme="blue"
-        isLoading={isLoading}
+      <motion.button
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className={`w-full p-3 border-2 border-white rounded neon2 transition-all ${
+          isLoading || !values.name || !values.email || !values.subject || !values.message
+            ? 'opacity-50 cursor-not-allowed' 
+            : 'hover:bg-white hover:text-black'
+        }`}
         disabled={
           !values.name || !values.email || !values.subject || !values.message
         }
         onClick={onSubmit}
       >
-        Submit
-      </Button>
-    </Container>
+        {isLoading ? 'Sending...' : 'Submit'}
+      </motion.button>
+        </div>
+      </motion.div>
+    </div>
   );
 }
