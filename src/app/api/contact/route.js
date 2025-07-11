@@ -23,42 +23,105 @@ const generateEmailContent = (data) => {
   };
 };
 
-export async function POST(req) {
+export async function POST(request) {
+  console.log("=== Contact API Called ===");
+  
   try {
-    const data = await req.json();
+    // Parse the request body
+    const data = await request.json();
+    console.log("Received data:", data);
     
+    // Validate required fields
     if (!data || !data.name || !data.email || !data.subject || !data.message) {
-      return Response.json({ message: "Bad request" }, { status: 400 });
+      console.log("Missing required fields:", {
+        name: !!data?.name,
+        email: !!data?.email,
+        subject: !!data?.subject,
+        message: !!data?.message
+      });
+      return new Response(
+        JSON.stringify({ message: "All fields are required" }), 
+        { 
+          status: 400,
+          headers: { 'Content-Type': 'application/json' }
+        }
+      );
     }
 
+    // Get environment variables
     const email = process.env.EMAIL;
     const pass = process.env.EMAIL_PASS;
+    
+    console.log("Email config:", {
+      email: email ? "Set" : "Missing",
+      pass: pass ? "Set" : "Missing"
+    });
 
     if (!email || !pass) {
-      console.error("Email credentials not found in environment variables");
-      return Response.json({ message: "Server configuration error" }, { status: 500 });
+      console.error("Email credentials missing from environment");
+      return new Response(
+        JSON.stringify({ message: "Server configuration error - email credentials missing" }), 
+        { 
+          status: 500,
+          headers: { 'Content-Type': 'application/json' }
+        }
+      );
     }
 
+    // Create transporter
+    console.log("Creating email transporter...");
     const transporter = nodemailer.createTransporter({
       service: "gmail",
       auth: {
         user: email,
-        pass,
+        pass: pass,
       },
     });
 
+    // Verify connection
+    console.log("Verifying email connection...");
+    await transporter.verify();
+    console.log("Email connection verified successfully");
+
+    // Generate email content
+    const emailContent = generateEmailContent(data);
+    
     const mailOptions = {
       from: email,
       to: email,
       subject: `Contact Form: ${data.subject}`,
-      ...generateEmailContent(data),
+      text: emailContent.text,
+      html: emailContent.html,
     };
 
+    console.log("Sending email...");
     await transporter.sendMail(mailOptions);
+    console.log("Email sent successfully");
 
-    return Response.json({ success: true }, { status: 200 });
-  } catch (err) {
-    console.error("Error sending email:", err);
-    return Response.json({ message: err.message }, { status: 400 });
+    return new Response(
+      JSON.stringify({ success: true, message: "Email sent successfully" }), 
+      { 
+        status: 200,
+        headers: { 'Content-Type': 'application/json' }
+      }
+    );
+
+  } catch (error) {
+    console.error("=== Contact API Error ===");
+    console.error("Error details:", error);
+    console.error("Error message:", error.message);
+    console.error("Error stack:", error.stack);
+    
+    return new Response(
+      JSON.stringify({ 
+        message: "Failed to send email", 
+        error: error.message,
+        details: process.env.NODE_ENV === 'development' ? error.stack : undefined
+      }), 
+      { 
+        status: 500,
+        headers: { 'Content-Type': 'application/json' }
+      }
+    );
   }
 }
