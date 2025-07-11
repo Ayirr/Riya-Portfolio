@@ -70,7 +70,7 @@ export async function POST(request) {
 
     // Create transporter
     console.log("Creating email transporter...");
-    const transporter = nodemailer.createTransporter({
+    const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
         user: email,
